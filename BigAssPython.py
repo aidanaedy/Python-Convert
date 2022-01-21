@@ -75,7 +75,6 @@ age = [temp4]
 phone = [temp5]
 birthday = [temp6]
 
-test_entry = {"name": 0, "address": 0, "sex": 0, "age": 0, "phone": 0, "birthday": 0}
 
 #Address_book = [total]
 Address_book = [0][0]
@@ -124,9 +123,9 @@ def main(users_choice):
 '''**************************************************************************
 *                            ***     NOTE'S     ***                         *
 * there should be these functions included in here:                         *
-* Add_f - an entry into the Address book.                                     *
+* Add_f - an entry into the Address book.                                   *
 * remove - an entry                                                         *
-* display all entries                                                          *
+* display all entries                                                       *
 * find - entry for a named person; all entries for people of same birthday  *
 * all persons with age in specified range; all entries for persons of phone *
 * in specified range;                                                       *
@@ -144,19 +143,19 @@ def menu(users_choice, exit_p):  # to select one of the listed func.
     print()
     users_choice = int(input())
     if users_choice == 1:
-        number_entries = Add_f(loading_entries)  # dec of Add func
+        Add_f(number_entries)  # dec of Add func
         main(users_choice)
     elif users_choice == 2:
         pass
         main(users_choice=0)
-        #Delete()  # dec of Delete func
+        #Delete()               # dec of Delete func
     elif users_choice == 3:
         Display(number_entries)  # dec of Display func
         main(users_choice=0)
     elif users_choice == 4:
         pass
         main(users_choice=0)
-        #Find(users_choice2)  # dec of Find menu
+        #Find(users_choice2)     # dec of Find menu
     elif users_choice == 5:
         exit_p = 1
         print("          You Will Now Exit The Program")
@@ -172,7 +171,7 @@ def menu(users_choice, exit_p):  # to select one of the listed func.
 
 
 '''****************************************************************
-**********************    Add_f Function       ********************
+*                         Add_f Function                          *
 ****************************************************************'''
 
 
@@ -191,9 +190,9 @@ def Add_f(number_entries):
     print()
     print()
 
-    '''__________________________________________________________
-    				 THIS IS THE MAIN INPUT SECTION
-    __________________________________________________________'''
+    '''*************************************************************
+    *              THIS IS THE MAIN INPUT SECTION                  *   
+    *************************************************************'''
 
     # area to test new entries instead of pointers
 
