@@ -25,6 +25,58 @@ import csv
 
 
 
+
+
+
+
+#****************************************************************************
+#                  checking if initial pass of the start                    *
+#****************************************************************************
+
+# I need to add a "number of entries" function that stores and passes the entries, that is called first when importing 
+# file has finished and returns the number_entries. then we can call it at the start of each applicable functions 
+# and put the entry number into a ocal value and pass back when done
+
+
+def initial():
+    not_initial_pass = 0
+    if not_initial_pass == 0:
+
+        number_entries, dataset2 = importing_file()
+        print(not_initial_pass, "= initial_pass")
+        not_initial_pass += 1
+        print(not_initial_pass, "= initial_pass")
+        count_entry(number_entries, dataset2)
+    else:
+        pass
+    
+
+
+# **********************  END Keeping initial FUNC. *********************
+
+
+
+#****************************************************************************
+#                         Keeping count of entries                          *
+#****************************************************************************
+
+# I need to keep track of entries and be able to call in each function and to return values to
+
+
+def count_entry(number_entries, dataset2):
+    number_entries, dataset2 = number_entries, dataset2
+    return number_entries, dataset2
+
+
+# **********************  END Keeping initial FUNC. *********************
+
+
+
+
+#****************************************************************************
+#                       Importing the data file function                    *
+#****************************************************************************
+
 def importing_file():
     # import the file and format to add to 'lines, dataset, number_entries' etc.
     from unittest import result
@@ -54,7 +106,17 @@ def importing_file():
     else:
         print("First Pass = ", first_pass)
     print(loading_entries, " = loading entries")
-    return loading_entries,dataset2
+    count_entry(loading_entries, dataset2)
+    return loading_entries, dataset2
+
+
+#******************************************************************************************
+#                             number of entries func
+#******************************************************************************************
+
+def number_of_entries():
+    number_entries, dataset2 = count_entry()
+    return number_entries, dataset2
 
 
 
@@ -62,7 +124,9 @@ def importing_file():
 
 # ***************************  credits_f FUNC  *****************************
 def credits_f():
-    loading_entries, dataset2 = importing_file()
+    number_entries = 0
+    dataset2 = 0
+    number_entries, dataset2 = count_entry(number_entries, dataset2)
     print(" *************************************************** ")
     print(" *              ADDRESS BOOK PROGRAM               * ")
     print(" *           ---------------------------           * ")
@@ -70,7 +134,7 @@ def credits_f():
     print(" *           DOS REGISTERED VERSION 1.5            * ")
     print(" *            LICENSED TO - AIDAN AEDY             * ")
     print(" *************************************************** ")
-    print("loading_entries ", loading_entries)
+    print("loading_entries ", number_entries)
     print()
 
 
@@ -81,10 +145,10 @@ def credits_f():
 #                            START OF MAIN FUNCTION                        *
 # **************************************************************************
 
-
-def main(users_choice, exit_p):
-    number_entries, dataset2 = importing_file()
-    if users_choice != 5:
+def main():
+    #number_entries, dataset2 = number_of_entries()
+    user_choice = 0
+    if user_choice != 5:
         print("          *** Enter Your Choice of Menu ***")
         print("            -------------------------    ")
         print("          1.| To Add An Entry.")
@@ -94,10 +158,10 @@ def main(users_choice, exit_p):
         print("          5.| To Exit From The Program. ")
         print()
         print()
-        menu(users_choice, exit_p)
+        menu()
     else:
         print("          Thank You For Using The ADDRESS BOOK..")
-        print("          You Will Now Return To DOS.")
+        print("          You Will Now Exit The Program.")
     # fileout (number_entries)
 
 # ***************************   END MAIN FUNC. ! **************************
@@ -111,34 +175,34 @@ def main(users_choice, exit_p):
 **************************************************************************'''
 
 
-def menu(users_choice, exit_p):  # to select one of the listed func.
+def menu():  # to select one of the listed func.
 
-    number_entries, dataset2 = importing_file()
+    #number_entries, dataset2 = number_of_entries()
     print("   ---  Please Type Your Choice of Menu ---")
-    print()
     users_choice = int(input())
     if users_choice == 1:
-        Add_f(number_entries, dataset2)  # dec of Add func
-        main(users_choice, exit_p)
+        Add_f()  # dec of Add func
+        print()
+        main()
     elif users_choice == 2:
         pass
-        main(users_choice, exit_p)
+        main()
         #Delete()               # dec of Delete func
     elif users_choice == 3:
-        Display(number_entries, dataset2)  # dec of Display func
-        main(users_choice, exit_p)
+        Display()  # dec of Display func
+        main()
     elif users_choice == 4:
         pass
-        main(users_choice, exit_p)
+        main()
         #Find(users_choice2)     # dec of Find menu
     elif users_choice == 5:
-        exit_p = 1
         print("          You Will Now Exit The Program")
         credits_f()
         credits()
     else:
         print("          You Have Made An Incorrect Choice")
-        main(users_choice, exit_p)
+        main()
+    return users_choice
 
 # **********************  END MAIN MENU FUNC. *********************
 
@@ -151,14 +215,13 @@ def menu(users_choice, exit_p):  # to select one of the listed func.
 ****************************************************************'''
 
 
-def Add_f(number_entries, dataset2):
-
-    #	system("cls")
-    number_entries, dataset2 = importing_file()
+def Add_f():
+    number_entries = 0
+    dataset2 = 0
+    number_entries, dataset2 = count_entry(number_entries, dataset2)
     print("****************************************************************")
     print()
-    print()
-    # Global and nonlocal or returning the value through the function parameter
+
     groo = (number_entries + 1)
 
     print("          Please input the persons details for:-")
@@ -245,8 +308,7 @@ def Add_f(number_entries, dataset2):
     print("          You will now return to the MAIN MENU. ")
     print("dataset2", dataset2)
     print("number_entries", number_entries)
-    return number_entries, dataset2
-    #main(users_choice)
+    count_entry(number_entries, dataset2)
 
 
     # *****        END Add_f FUNC.    *****
@@ -259,16 +321,17 @@ def Add_f(number_entries, dataset2):
 # ********************  Display Function   *******************************
 # ************************************************************************
 
-def Display (number_entries, dataset2):
-
-    number_entries, dataset2 = importing_file()
+def Display ():
+    number_entries = 0
+    dataset2 = 0
+    number_entries, dataset2 = count_entry(number_entries, dataset2)
     poo = 0
-    sloo = 0
+    sloo = 1
     poo += 1
     dummy = "y"
     print("          ***   This is the ", sloo, "of ", number_entries, " enties stored in the database.   ***")
 
-    while sloo < number_entries:
+    while sloo < number_entries+1:
         #while dummy != "n":
         print("          Name          - ", dataset2[poo])
         print("          Address       - ", dataset2[poo+1])
