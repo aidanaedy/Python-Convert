@@ -1,22 +1,22 @@
 #***************************************************************************
 #                 This is where I am storing the functions                 *
 #                            Author: A.AEDY                                *
-#                       To be called by BigAssPy                           *
+#                       To be called by BigAssPy file only                 *
 #                             Python VERSION                               *
 #***************************************************************************
 
 
-'''**************************************************************************
-*                            ***     NOTE'S     ***                         *
-* there should be these functions included in here:                         *
-* Add_f - an entry into the Address book.                                   *
-* remove - an entry                                                         *
-* display all entries                                                       *
-* find - entry for a named person; all entries for people of same birthday  *
-* all persons with age in specified range; all entries for persons of phone *
-* in specified range;                                                       *
-*                                                                           *
-**************************************************************************'''
+#****************************************************************************
+#                        ***     NOTE'S     ***                             *
+# there should be these functions included in here:                         *
+# Add_f - an entry into the Address book.                                   *
+# remove - an entry                                                         *
+# display all entries                                                       *
+# find - entry for a named person; all entries for people of same birthday  *
+# all persons with age in specified range; all entries for persons of phone *
+# in specified range;                                                       *
+#                                                                           *
+#****************************************************************************
 
 import datetime
 import time
@@ -26,7 +26,7 @@ import csv
 
 
 
-
+# **************************  FUNCTION DECLARATION'S ***********************
 
 
 #****************************************************************************
@@ -63,8 +63,6 @@ def initial():
 def importing_file():
     # import the file and format to add to 'lines, dataset, number_entries' etc.
     from unittest import result
-    global loading_entries
-    global dataset2
     first_pass = int()
 
     if first_pass < 1:
@@ -72,7 +70,9 @@ def importing_file():
         lines = [line for line in open(path)]
 
         dataset3 = []
-        #   ----   try .strip to remove more from the strings later   -----
+
+        #---  return to this .strip to remove more from the strings later  ---
+
         dataset = [line.strip("  - ' \n").split(',') for line in open(path)]
 
         strings_set = [str(integer) for integer in dataset]
@@ -90,13 +90,11 @@ def importing_file():
     else:
         print("First Pass = ", first_pass)
     print(loading_entries, " = loading entries")
-    #print(dataset3, " = dataset3")
     count_entry(loading_entries, dataset2)
     return loading_entries, dataset2
 
 
 # ******************  END Importing the data file function *****************
-
 
 
 
@@ -108,28 +106,18 @@ def importing_file():
 # I need to keep track of entries and be able to call in each function and to return values to
 
 
-def count_entry(number_entries, dataset2):
-    loading_entries, dataset2 = number_entries, dataset2
-    return loading_entries, dataset2
+def count_entry(number_entries_count, dataset2_count):
+    loading_entries_count, dataset2_count2 = number_entries_count, dataset2_count
+    return loading_entries_count, dataset2_count
 
 
 # ********************  END Keeping count of entries FUNC. *******************
 
 
 
-#******************************************************************************
-#                             number of entries func
-#******************************************************************************
-
-def number_of_entries():
-    number_of_entries, data_set2 = count_entry(number_entries, dataset2)
-    return number_entries, dataset2
-
-
-
-# **************************  FUNCTION DECLARATION'S ***********************
-
-# ***************************  credits_f FUNC  *****************************
+#****************************************************************************
+# ***************************  credits_f FUNC  ******************************
+#****************************************************************************
 def credits_f():
 
     print(" *************************************************** ")
@@ -150,12 +138,10 @@ def credits_f():
 # **************************************************************************
 
 def main():
-    global number_entries
-    #dataset2 = 0
+
     initial()
     
-    number_entries, data_set2 = count_entry(loading_entries, dataset2)
-    print("number_entries ", number_entries)
+    print()
     print("          *** Enter Your Choice of Menu ***")
     print("            -------------------------    ")
     print("          1.| To Add An Entry.")
@@ -167,7 +153,7 @@ def main():
     print()
     menu()
 
-    # fileout (number_entries)
+    # fileout section needs to add back in later (number_entries)
 
 # ***************************   END MAIN FUNC. ! **************************
 
@@ -175,9 +161,9 @@ def main():
 
 
 
-'''**************************************************************************
-*                            START OF MAIN MENU FUNC.                       *
-**************************************************************************'''
+#****************************************************************************
+#                            START OF MAIN MENU FUNC.                       *
+#****************************************************************************
 
 
 def menu():  # to select one of the listed func.
@@ -216,19 +202,18 @@ def menu():  # to select one of the listed func.
 
 
 
-
-'''****************************************************************
-*                         Add_f Function                          *
-****************************************************************'''
+#******************************************************************
+#                         Add_f Function                          *
+#******************************************************************
 
 
 def Add_f():
 
-    number_of_entries, data_set2 = count_entry(loading_entries, dataset2)
+    number_of_entries_add, data_set2_add = count_entry(number_entries_add, dataset2_add)
     print("****************************************************************")
-    print("number_of_entries = ", number_of_entries, "loading_entries = ", loading_entries)
+    print("number_of_entries_add = ", number_of_entries_add)
 
-    groo = int(number_of_entries + 1)
+    groo = int(number_of_entries_add + 1)
 
     print("          Please input the persons details for:-")
     print("          Name, ", "Address, ", "Sex, ", "Age, ")
@@ -237,11 +222,11 @@ def Add_f():
     print()
     print()
 
-    '''*************************************************************
-    *              THIS IS THE MAIN INPUT SECTION                  *   
-    *************************************************************'''
+    #***************************************************************
+    #              THIS IS THE MAIN INPUT SECTION                  *   
+    #***************************************************************
 
-    print("number_entries = ", number_of_entries)
+    print("number_entries = ", number_of_entries_add)
 
     print("          Name             -  : ")
     name_str = input(str())
@@ -291,31 +276,31 @@ def Add_f():
 
     #Append each entry onto the dataset list
 
-    data_set2.append(name1)
-    data_set2.append(",")
-    data_set2.append(address1)
-    data_set2.append(",")
-    data_set2.append(sex1)
-    data_set2.append(",")
-    data_set2.append(age1)
-    data_set2.append(",")
-    data_set2.append(phone1)
-    data_set2.append(",")
-    data_set2.append(birthday1)
-    data_set2.append(",")
-    data_set2.append(date_stamp)
-    number_of_entries += 1
-    number_entries = number_of_entries
+    data_set2_add.append(name1)
+    data_set2_add.append(",")
+    data_set2_add.append(address1)
+    data_set2_add.append(",")
+    data_set2_add.append(sex1)
+    data_set2_add.append(",")
+    data_set2_add.append(age1)
+    data_set2_add.append(",")
+    data_set2_add.append(phone1)
+    data_set2_add.append(",")
+    data_set2_add.append(birthday1)
+    data_set2_add.append(",")
+    data_set2_add.append(date_stamp)
+    number_of_entries_add += 1
+    number_entries_add = number_of_entries_add
 
-    num_temp_entries = str(number_of_entries)
+    num_temp_entries = str(number_of_entries_add)
     num_temp_entries += "             - # of Entries."
-    data_set2[0] = num_temp_entries
+    data_set2_add[0] = num_temp_entries
 
-    print("number_of_entries", number_of_entries)
+    print("number_of_entries", number_of_entries_add)
     print("          You will now return to the MAIN MENU. ")
-    print("dataset2", data_set2)
-    print("number_entries = ", number_entries, "number_of_entries = ", number_of_entries, "loading_entries = ", loading_entries)
-    count_entry(number_entries, data_set2)
+    print("dataset2", data_set2_add)
+    print("number_entries = ", number_entries_add, "number_of_entries = ", number_of_entries_add)
+    count_entry(number_entries_add, data_set2_add)
 
 
 # *********************    END Add_f FUNC.    ****************************
@@ -325,28 +310,28 @@ def Add_f():
 
 
 # ************************************************************************
-# ********************  Display Function   *******************************
+# ************************  Display Function   ***************************
 # ************************************************************************
 
 def Display ():
 
     
-    number_entries, data_set2 = count_entry(loading_entries, dataset2)
+    number_of_entries_display, data_set2_display = count_entry(number_entries_display, dataset2_display)
     poo = 0
     sloo = 1
     poo += 1
     dummy = "y"
-    print("number_entries = ", number_entries, "number_of_entries = ", number_of_entries, "loading_entries = ", loading_entries)
-    print("          ***   This is the ", sloo, "of ", number_entries, " entries stored in the database.   ***")
+    print("number_of_entries_display = ", number_of_entries_display)
+    print("          ***   This is the ", sloo, "of ", number_of_entries_display, " entries stored in the database.   ***")
 
-    while sloo < number_entries+1:
-        print("          Name          - ", data_set2[poo])
-        print("          Address       - ", data_set2[poo+1])
-        print("          Sex           - ", data_set2[poo+2])
-        print("          Age           - ", data_set2[poo+3])
-        print("          Phone         - ", data_set2[poo+4])
-        print("          Date of Birth - ", data_set2[poo+5])
-        print("          Date of Entry - ", data_set2[poo+6])
+    while sloo < number_of_entries_display + 1:
+        print("          Name          - ", data_set2_display[poo])
+        print("          Address       - ", data_set2_display[poo+1])
+        print("          Sex           - ", data_set2_display[poo+2])
+        print("          Age           - ", data_set2_display[poo+3])
+        print("          Phone         - ", data_set2_display[poo+4])
+        print("          Date of Birth - ", data_set2_display[poo+5])
+        print("          Date of Entry - ", data_set2_display[poo+6])
         print("     Entry Number: ", sloo, "     ...Are you ready for Another ?...")
         input(str(dummy))
         sloo += 1
@@ -357,8 +342,7 @@ def Display ():
         print("          You will now return to the MAIN MENU. ")
         poo = 0
         print()
-    print("number_entries = ", number_entries, "number_of_entries = ", number_of_entries, "loading_entries = ", loading_entries)
-    return number_entries, data_set2
+    print("number_of_entries_display = ", number_of_entries_display)
     print()
    
 
