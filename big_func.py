@@ -210,9 +210,8 @@ def menu():  # to select one of the listed func.
 def Add_f():
 
     number_of_entries_add, data_set2_add = count_entry(number_entries_add, dataset2_add)
-    print("****************************************************************")
-    print("number_of_entries_add = ", number_of_entries_add)
 
+    print("****************************************************************")
     groo = int(number_of_entries_add + 1)
 
     print("          Please input the persons details for:-")
@@ -225,8 +224,7 @@ def Add_f():
     #***************************************************************
     #              THIS IS THE MAIN INPUT SECTION                  *   
     #***************************************************************
-
-    print("number_entries = ", number_of_entries_add)
+    # change formatting to fit input/output file better, later on
 
     print("          Name             -  : ")
     name_str = input(str())
@@ -271,11 +269,7 @@ def Add_f():
     date_stamp += str(" at ")
     date_stamp += str(date_of_entry_str2)
 
-    #remove when finished testing
-    print("input information etc", name1, address1, sex1, age1, phone1, birthday1, date_stamp)
-
     #Append each entry onto the dataset list
-
     data_set2_add.append(name1)
     data_set2_add.append(",")
     data_set2_add.append(address1)
@@ -290,17 +284,15 @@ def Add_f():
     data_set2_add.append(",")
     data_set2_add.append(date_stamp)
     number_of_entries_add += 1
-    number_entries_add = number_of_entries_add
-
+    #number_entries_add = number_of_entries_add
+    # update number of entries with new string value
     num_temp_entries = str(number_of_entries_add)
     num_temp_entries += "             - # of Entries."
     data_set2_add[0] = num_temp_entries
 
-    print("number_of_entries", number_of_entries_add)
     print("          You will now return to the MAIN MENU. ")
-    print("dataset2", data_set2_add)
-    print("number_entries = ", number_entries_add, "number_of_entries = ", number_of_entries_add)
-    count_entry(number_entries_add, data_set2_add)
+
+    count_entry(number_of_entries_add, data_set2_add)
 
 
 # *********************    END Add_f FUNC.    ****************************
