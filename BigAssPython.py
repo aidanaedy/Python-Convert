@@ -18,7 +18,7 @@ from unittest import result
 first_pass = int()
 
 if first_pass < 1:
-    path = "bigdos.in"
+    path = "C:\python\Python-Convert_old\\bigdos.in"
     lines = [line for line in open(path)]
 
     dataset3 = []
@@ -368,8 +368,9 @@ def Display (number_entries):
         print("          You will now return to the MAIN MENU. ")
         poo = 0
         print()
+        print()
     return number_entries
-    print()
+
    
 
 # ***********************    END DISPLAY FUNC.   **********************
