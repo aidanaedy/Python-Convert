@@ -9,7 +9,7 @@
 #****************************************************************************
 #                        ***     NOTE'S     ***                             *
 # there should be these functions included in here:                         *
-# Add_f - an entry into the Address book.                                   *
+# add_f - an entry into the Address book.                                   *
 # remove - an entry                                                         *
 # display all entries                                                       *
 # find - entry for a named person; all entries for people of same birthday  *
@@ -24,7 +24,8 @@ from typing import List
 import csv
 
 
-
+# loading_entries_count = 0
+# dataset2_count = []
 
 # **************************  FUNCTION DECLARATION'S ***********************
 
@@ -66,7 +67,7 @@ def importing_file():
     first_pass = int()
 
     if first_pass < 1:
-        path = "bigdos.in"
+        path = "C:\\Users\\aidan\\OneDrive\\Documents\\GitHub\\Python-Convert\\Python-Convert-1\\bigdos.in"
         lines = [line for line in open(path)]
 
         dataset3 = []
@@ -171,15 +172,15 @@ def menu():  # to select one of the listed func.
     print("   ---  Please Type Your Choice of Menu ---")
     users_choice = int(input())
     if users_choice == 1:
-        Add_f()  # dec of Add func
+        add_f()  # dec of Add func
         print()
         main()
     elif users_choice == 2:
         pass
         main()
-        #Delete()               # dec of Delete func
+        #delete()               # dec of Delete func
     elif users_choice == 3:
-        Display()  # dec of Display func
+        display()  # dec of display func
         main()
     elif users_choice == 4:
         pass
@@ -203,13 +204,13 @@ def menu():  # to select one of the listed func.
 
 
 #******************************************************************
-#                         Add_f Function                          *
+#                         add_f Function                          *
 #******************************************************************
 
 
-def Add_f():
+def add_f():
 
-    number_of_entries_add, data_set2_add = count_entry(number_entries_add, dataset2_add)
+    number_of_entries_add, data_set2_add = count_entry(loading_entries_count, dataset2_count)
 
     print("****************************************************************")
     groo = int(number_of_entries_add + 1)
@@ -295,20 +296,20 @@ def Add_f():
     count_entry(number_of_entries_add, data_set2_add)
 
 
-# *********************    END Add_f FUNC.    ****************************
+# *********************    END add_f FUNC.    ****************************
 
 
 
 
 
 # ************************************************************************
-# ************************  Display Function   ***************************
+# ************************  display Function   ***************************
 # ************************************************************************
 
-def Display ():
+def display ():
 
     
-    number_of_entries_display, data_set2_display = count_entry(number_entries_display, dataset2_display)
+    number_of_entries_display, data_set2_display = count_entry(loading_entries_count, dataset2_count)
     poo = 0
     sloo = 1
     poo += 1
