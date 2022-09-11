@@ -22,10 +22,10 @@ import datetime
 import time
 import big_class
 
-# *---------------------*  FUNCTION DEFINITION'S *--------------------------*
+# |----------------------|  FUNCTION DEFINITION'S |--------------------------|
 
 """***************************************************************************
-#                   checking if initial pass of the start                    *
+|                   checking if initial pass of the start                    |
 # *************************************************************************"""
 
 
@@ -44,12 +44,12 @@ def initial(not_initial_pass=1):
         pass
 
 
-# *---------------------*  END Keeping initial FUNC. *----------------------*
+# |---------------------|  END Keeping initial FUNC. |-----------------------|
 
 
-"""**************************************************************************
-*                       Importing the data file function                    *
-**************************************************************************"""
+"""***************************************************************************
+|                       Importing the data file function                     |
+***************************************************************************"""
 
 
 def importing_file():
@@ -82,11 +82,11 @@ def importing_file():
     return loading_entries, dataset2
 
 
-# *---------------*  END Importing the data file function *------------------*
+# |---------------|  END Importing the data file function |------------------|
 
 
 """***************************************************************************
-#                          Keeping count of entries                          *
+|                          Keeping count of entries                          |
 ***************************************************************************"""
 
 
@@ -99,25 +99,25 @@ def count_entry(number_entries_count, dataset2_count):
 # *-----------------*  END Keeping count of entries FUNC. *-------------------*
 
 
-"""****************************************************************************
-*                             *  credits_f FUNC  *                            *
-****************************************************************************"""
+"""***************************************************************************
+|                             *  credits_f FUNC  *                           |
+***************************************************************************"""
 
 
 def credits_f():
     print("""
-********************************************************
-****             ADDRESS BOOK PROGRAM               ****
-****          ---------------------------           ****
-****                BY AIDAN AEDY                   ****
-****         PYTHON REGISTERED VERSION 1.5          ****
-****           LICENSED TO - AIDAN AEDY             ****
-********************************************************
+--------------------------------------------------------
+|                ADDRESS BOOK PROGRAM                  |
+|             ---------------------------              |
+|                   BY AIDAN AEDY                      |
+|            PYTHON REGISTERED VERSION 1.5             |
+|              LICENSED TO - AIDAN AEDY                |
+--------------------------------------------------------
     """)
 
 
 """*************************************************************************
-#                            START OF MAIN FUNCTION                        *
+|                            START OF MAIN FUNCTION                        |
 *************************************************************************"""
 
 
@@ -127,30 +127,30 @@ def main(data_set2):
 
     print(f"There are {local_tally} entries")
     print()
-    print("          *** Enter Your Choice of Menu ***")
-    print("          ---------------------------------")
-    print("          1.| To Add An Entry.")
-    print("          2.| To Delete An Entry.")
-    print("          3.| To Display All Entries.")
-    print("          4.| To Goto Find Menu.")
-    print("          5.| To Exit From The Program. ")
+    print("        |        Enter Your Choice of Menu   |")
+    print("        |------------------------------------|")
+    print("        |    1.| To Add An Entry.            |")
+    print("        |    2.| To Delete An Entry.         |")
+    print("        |    3.| To Display All Entries.     |")
+    print("        |    4.| To Goto Find Menu.          |")
+    print("        |    5.| To Exit From The Program.   |")
     print()
     print()
     menu(data_set2)
 
     # fileout section needs to add back in later (number_entries)
 
-# *--------------------------*   END MAIN FUNC. ! *-------------------------*
+# |--------------------------|   END MAIN FUNC. ! |-------------------------|
 
 
 """**************************************************************************
-#                            START OF MAIN MENU FUNC.                       *
+|                            START OF MAIN MENU FUNC.                       |
 **************************************************************************"""
 
 
 def menu(data_set2):  # to select one of the listed func.
 
-    print("   ---  Please Type Your Choice of Menu ---")
+    print("       ---  Please Type Your Choice of Menu ---")
     users_choice = int(input())
     if users_choice == 1:
         add_f(data_set2)         # call of add func
@@ -183,7 +183,7 @@ def menu(data_set2):  # to select one of the listed func.
 
 
 """****************************************************************
-#                         Add_f Function                          *
+|                         Add_f Function                          |
 ****************************************************************"""
 
 
@@ -192,8 +192,8 @@ def add_f(data_set2):
     bclass = big_class.bigclass
     count = int(bclass.get_tally)
 
-    print(bclass.get_tally, " = number of tallies")
-    print("****************************************************************")
+    print()
+    print("----------------------------------------------------------------")
     groo = count + 1
 
     print("          Please input the persons details for:-")
@@ -281,7 +281,7 @@ def add_f(data_set2):
 
 
 """***********************************************************************
-*                           display Function                             *
+|                           display Function                             |
 ***********************************************************************"""
 
 
@@ -294,7 +294,7 @@ def display(data_set2):
     sloo = 1
     poo += 1
     dummy = "y"
-    print("number_of_entries_display = ", count)
+    print()
     print("          ***   This is the ", sloo, "of ", count, " entries in the database.   ***")
 
     while sloo < count + 1:
