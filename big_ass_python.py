@@ -9,6 +9,7 @@
 import big_func
 import big_class
 
+
 bclass = big_class.bigclass
 """***********************************************************************
 # *************************  Calling Functions  **************************
@@ -25,7 +26,6 @@ if __name__ == '__main__':
     count = counter[0]
     data_set2 = counter[1]
     bclass.set_tally(int(count))
-
 
     big_func.credits_f()
 

@@ -22,16 +22,12 @@ import datetime
 import time
 import big_class
 
-# ***************************  FUNCTION DECLARATION'S ************************
+# *---------------------*  FUNCTION DEFINITION'S *--------------------------*
 
 """***************************************************************************
 #                   checking if initial pass of the start                    *
 # *************************************************************************"""
 
-
-# I need to add a "number of entries" function that stores and passes the entries, that is called first when importing
-# file has finished and returns the number_entries. then we can call it at the start of each applicable functions 
-# and put the entry number into a local value and pass back when done
 
 def initial(not_initial_pass=1):
 
@@ -48,7 +44,7 @@ def initial(not_initial_pass=1):
         pass
 
 
-# **********************  END Keeping initial FUNC. *********************
+# *---------------------*  END Keeping initial FUNC. *----------------------*
 
 
 """**************************************************************************
@@ -70,10 +66,6 @@ def importing_file():
         # ---  return to this .strip to remove more from the strings later  ---
 
         dataset = [line.strip("  - ' \n").split(',') for line in open(path)]
-
-        # strings_set = [str(integer) for integer in dataset]
-        # a_string = "".join(strings_set).strip('             - \n')
-
         dataset2 = dataset
 
         for word in lines[0].split():
@@ -90,7 +82,7 @@ def importing_file():
     return loading_entries, dataset2
 
 
-# ******************  END Importing the data file function *****************
+# *---------------*  END Importing the data file function *------------------*
 
 
 """***************************************************************************
@@ -104,13 +96,11 @@ def importing_file():
 def count_entry(number_entries_count, dataset2_count):
     loading_entries_count, dataset2_count2 = number_entries_count, dataset2_count
     return loading_entries_count, dataset2_count
-
-
-# ********************  END Keeping count of entries FUNC. *******************
+# *-----------------*  END Keeping count of entries FUNC. *-------------------*
 
 
 """****************************************************************************
-************************** ****  credits_f FUNC  ******************************
+*                             *  credits_f FUNC  *                            *
 ****************************************************************************"""
 
 
@@ -135,7 +125,7 @@ def main(data_set2):
 
     local_tally = big_class.bigclass.get_tally
 
-    print(f"There are {local_tally} tallies")
+    print(f"There are {local_tally} entries")
     print()
     print("          *** Enter Your Choice of Menu ***")
     print("          ---------------------------------")
@@ -150,8 +140,7 @@ def main(data_set2):
 
     # fileout section needs to add back in later (number_entries)
 
-
-# ***************************   END MAIN FUNC. ! **************************
+# *--------------------------*   END MAIN FUNC. ! *-------------------------*
 
 
 """**************************************************************************
@@ -160,12 +149,11 @@ def main(data_set2):
 
 
 def menu(data_set2):  # to select one of the listed func.
-    bclass = big_class.bigclass
 
     print("   ---  Please Type Your Choice of Menu ---")
     users_choice = int(input())
     if users_choice == 1:
-        add_f(data_set2)  # call of add func
+        add_f(data_set2)         # call of add func
         print()
         main(data_set2)
     elif users_choice == 2:
@@ -173,7 +161,7 @@ def menu(data_set2):  # to select one of the listed func.
         main(data_set2)
         # delete()               # call of delete func
     elif users_choice == 3:
-        display(data_set2)  # call of display func
+        display(data_set2)       # call of display func
         main(data_set2)
     elif users_choice == 4:
         pass
@@ -191,8 +179,7 @@ def menu(data_set2):  # to select one of the listed func.
         main(data_set2)
     return users_choice
 
-
-# **********************  END MAIN MENU FUNC. *********************
+# *---------------*     END MAIN MENU FUNC.    *------------------*
 
 
 """****************************************************************
@@ -203,11 +190,11 @@ def menu(data_set2):  # to select one of the listed func.
 def add_f(data_set2):
     data_set2_add = data_set2
     bclass = big_class.bigclass
-    count = bclass.get_tally
+    count = int(bclass.get_tally)
 
     print(bclass.get_tally, " = number of tallies")
     print("****************************************************************")
-    groo = int(count) + 1
+    groo = count + 1
 
     print("          Please input the persons details for:-")
     print("          Name, ", "Address, ", "Sex, ", "Age, ")
@@ -216,9 +203,9 @@ def add_f(data_set2):
     print()
     print()
 
-    # ***************************************************************
-    #              THIS IS THE MAIN INPUT SECTION                  *   
-    # ***************************************************************
+    # *-------------------------------------------------------------*
+    #              THIS IS THE MAIN INPUT SECTION                   *
+    # *-------------------------------------------------------------*
     # change formatting to fit input/output file better, later on
 
     print("          Name             -  : ")
@@ -286,17 +273,15 @@ def add_f(data_set2):
     bclass.set_tally(int(count))
 
     print(f"No of tallies : {bclass.get_tally}")
-#    bclass.set_tally(bclass.get_tally)
     print("          You will now return to the MAIN MENU. ")
 
     return data_set2_add
 
-
-# *********************    END add_f FUNC.    ****************************
+# *--------------------      END add_f FUNC.    --------------------------*
 
 
 """***********************************************************************
-**************************  display Function   ***************************
+*                           display Function                             *
 ***********************************************************************"""
 
 
