@@ -20,7 +20,7 @@
 
 import datetime
 import time
-
+import big_class
 
 # ***************************  FUNCTION DECLARATION'S ************************
 
@@ -28,13 +28,13 @@ import time
 #                   checking if initial pass of the start                    *
 # *************************************************************************"""
 
-# I need to add a "number of entries" function that stores and passes the entries, that is called first when importing 
+
+# I need to add a "number of entries" function that stores and passes the entries, that is called first when importing
 # file has finished and returns the number_entries. then we can call it at the start of each applicable functions 
 # and put the entry number into a local value and pass back when done
 
+def initial(not_initial_pass=1):
 
-def initial():
-    not_initial_pass = 0
     if not_initial_pass == 0:
 
         number_entries, dataset2 = importing_file()
@@ -42,10 +42,12 @@ def initial():
         not_initial_pass += 1
         print(not_initial_pass, "= initial_pass")
         counter = count_entry(number_entries, dataset2)
+        big_class.bigclass.tally = counter
         return counter
     else:
         pass
-    
+
+
 # **********************  END Keeping initial FUNC. *********************
 
 
@@ -95,6 +97,7 @@ def importing_file():
 #                          Keeping count of entries                          *
 ***************************************************************************"""
 
+
 # I need to keep track of entries and be able to call in each function and to return values to
 
 
@@ -112,7 +115,6 @@ def count_entry(number_entries_count, dataset2_count):
 
 
 def credits_f():
-
     print("""
 ********************************************************
 ****             ADDRESS BOOK PROGRAM               ****
@@ -129,13 +131,11 @@ def credits_f():
 *************************************************************************"""
 
 
-def main(count, data_set2):
+def main(data_set2):
 
-    counter = initial()
-    count = counter[0]
-    data_set2 = counter[1]
-    
-    print(f"There are {count} entries")
+    local_tally = big_class.bigclass.get_tally
+
+    print(f"There are {local_tally} tallies")
     print()
     print("          *** Enter Your Choice of Menu ***")
     print("          ---------------------------------")
@@ -146,9 +146,10 @@ def main(count, data_set2):
     print("          5.| To Exit From The Program. ")
     print()
     print()
-    menu(count, data_set2)
+    menu(data_set2)
 
     # fileout section needs to add back in later (number_entries)
+
 
 # ***************************   END MAIN FUNC. ! **************************
 
@@ -158,25 +159,26 @@ def main(count, data_set2):
 **************************************************************************"""
 
 
-def menu(count, data_set2):  # to select one of the listed func.
+def menu(data_set2):  # to select one of the listed func.
+    bclass = big_class.bigclass
 
     print("   ---  Please Type Your Choice of Menu ---")
     users_choice = int(input())
     if users_choice == 1:
-        add_f(count, data_set2)  # dec of Add func
+        add_f(data_set2)  # call of add func
         print()
-        main(count, data_set2)
+        main(data_set2)
     elif users_choice == 2:
         pass
-        main(count, data_set2)
-        # Delete()               # dec of Delete func
+        main(data_set2)
+        # delete()               # call of delete func
     elif users_choice == 3:
-        display(count, data_set2)  # dec of Display func
-        main(count, data_set2)
+        display(data_set2)  # call of display func
+        main(data_set2)
     elif users_choice == 4:
         pass
-        main(count, data_set2)
-        # Find(users_choice2)     # dec of Find menu
+        main(data_set2)
+        # find(users_choice2)     # call of find menu
     elif users_choice == 5:
         print("       Thank you for using the database program")
         print("       You will now exit to the command prompt.")
@@ -186,8 +188,9 @@ def menu(count, data_set2):  # to select one of the listed func.
         credits()
     else:
         print("          You Have Made An Incorrect Choice")
-        main(count, data_set2)
+        main(data_set2)
     return users_choice
+
 
 # **********************  END MAIN MENU FUNC. *********************
 
@@ -197,12 +200,14 @@ def menu(count, data_set2):  # to select one of the listed func.
 ****************************************************************"""
 
 
-def add_f(count, data_set2):
-   
+def add_f(data_set2):
     data_set2_add = data_set2
-    
+    bclass = big_class.bigclass
+    count = bclass.get_tally
+
+    print(bclass.get_tally, " = number of tallies")
     print("****************************************************************")
-    groo = int(count)+1
+    groo = int(count) + 1
 
     print("          Please input the persons details for:-")
     print("          Name, ", "Address, ", "Sex, ", "Age, ")
@@ -274,15 +279,17 @@ def add_f(count, data_set2):
     data_set2_add.append(",")
     data_set2_add.append(date_stamp)
     count += 1
-    # number_entries_add = number_of_entries_add
-    # update number of entries with new string value
     num_temp_entries = str(count)
     num_temp_entries += "             - # of Entries."
     data_set2_add[0] = num_temp_entries
 
+    bclass.set_tally(int(count))
+
+    print(f"No of tallies : {bclass.get_tally}")
+#    bclass.set_tally(bclass.get_tally)
     print("          You will now return to the MAIN MENU. ")
 
-    return count, data_set2_add
+    return data_set2_add
 
 
 # *********************    END add_f FUNC.    ****************************
@@ -293,9 +300,11 @@ def add_f(count, data_set2):
 ***********************************************************************"""
 
 
-def display(count, data_set2):
-    
+def display(data_set2):
+    bclass = big_class.bigclass
     data_set2_display = data_set2
+    count = bclass.get_tally
+
     poo = 0
     sloo = 1
     poo += 1
@@ -305,12 +314,12 @@ def display(count, data_set2):
 
     while sloo < count + 1:
         print("          Name          - ", data_set2_display[poo])
-        print("          Address       - ", data_set2_display[poo+1])
-        print("          Sex           - ", data_set2_display[poo+2])
-        print("          Age           - ", data_set2_display[poo+3])
-        print("          Phone         - ", data_set2_display[poo+4])
-        print("          Date of Birth - ", data_set2_display[poo+5])
-        print("          Date of Entry - ", data_set2_display[poo+6])
+        print("          Address       - ", data_set2_display[poo + 1])
+        print("          Sex           - ", data_set2_display[poo + 2])
+        print("          Age           - ", data_set2_display[poo + 3])
+        print("          Phone         - ", data_set2_display[poo + 4])
+        print("          Date of Birth - ", data_set2_display[poo + 5])
+        print("          Date of Entry - ", data_set2_display[poo + 6])
         print("     Entry Number: ", sloo, "     ...Are you ready for Another ?...")
         input(str(dummy))
         sloo += 1
@@ -323,6 +332,5 @@ def display(count, data_set2):
         print()
     print(f"count =  {count}")
     print()
-   
 
 # ***********************    END DISPLAY FUNC.   **********************
