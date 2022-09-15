@@ -121,7 +121,7 @@ def credits_f():
 *************************************************************************"""
 
 
-def main(data_set2):
+def main():
 
     local_tally = big_class.bigclass.get_tally
 
@@ -136,7 +136,7 @@ def main(data_set2):
     print("        |    5.| To Exit From The Program.   |")
     print()
     print()
-    menu(data_set2)
+    menu()
 
     # fileout section needs to add back in later (number_entries)
 
@@ -148,24 +148,24 @@ def main(data_set2):
 **************************************************************************"""
 
 
-def menu(data_set2):  # to select one of the listed func.
+def menu():  # to select one of the listed func.
 
     print("       ---  Please Type Your Choice of Menu ---")
     users_choice = int(input())
     if users_choice == 1:
-        add_f(data_set2)         # call of add func
+        add_f()         # call of add func
         print()
-        main(data_set2)
+        main()
     elif users_choice == 2:
         pass
-        main(data_set2)
+        main()
         # delete()               # call of delete func
     elif users_choice == 3:
-        display(data_set2)       # call of display func
-        main(data_set2)
+        display()       # call of display func
+        main()
     elif users_choice == 4:
         pass
-        main(data_set2)
+        main()
         # find(users_choice2)     # call of find menu
     elif users_choice == 5:
         print("       Thank you for using the database program")
@@ -176,7 +176,7 @@ def menu(data_set2):  # to select one of the listed func.
         credits()
     else:
         print("          You Have Made An Incorrect Choice")
-        main(data_set2)
+        main()
     return users_choice
 
 # *---------------*     END MAIN MENU FUNC.    *------------------*
@@ -187,9 +187,9 @@ def menu(data_set2):  # to select one of the listed func.
 ****************************************************************"""
 
 
-def add_f(data_set2):
-    data_set2_add = data_set2
+def add_f():
     bclass = big_class.bigclass
+    data_set2_add = bclass.get_data_set
     count = int(bclass.get_tally)
 
     print()
@@ -285,9 +285,9 @@ def add_f(data_set2):
 ***********************************************************************"""
 
 
-def display(data_set2):
+def display():
     bclass = big_class.bigclass
-    data_set2_display = data_set2
+    data_set2_display = bclass.get_data_set
     count = bclass.get_tally
 
     poo = 0

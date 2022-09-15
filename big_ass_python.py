@@ -24,9 +24,9 @@ if __name__ == '__main__':
 
     counter = big_func.initial(0)
     count = counter[0]
-    data_set2 = counter[1]
+    bclass.set_data_set(counter[1])
     bclass.set_tally(int(count))
 
     big_func.credits_f()
 
-    big_func.main(data_set2)
+    big_func.main()
