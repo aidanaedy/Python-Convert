@@ -4,8 +4,6 @@
 #                       To be called by BigAssPy file only                 *
 #                             Python VERSION                               *
 # **************************************************************************
-
-
 # ***************************************************************************
 #                        ***     NOTE'S     ***                             *
 # there should be these functions included in here:                         *
@@ -30,15 +28,11 @@ import big_class
 
 
 def initial(not_initial_pass=1):
-
+    # if a value of zero is passed to initial(0), then override the default of 1, but if it is 0,
+    #  then import the file - to check if first run or not as don't want to import file if not
     if not_initial_pass == 0:
-
-        number_entries, dataset2 = importing_file()
-        print(not_initial_pass, "= initial_pass")
+        counter = importing_file()
         not_initial_pass += 1
-        print(not_initial_pass, "= initial_pass")
-        counter = count_entry(number_entries, dataset2)
-        big_class.bigclass.tally = counter
         return counter
     else:
         pass
@@ -60,14 +54,10 @@ def importing_file():
     if first_pass < 1:
         path = "bigdos.in"
         lines = [line for line in open(path)]
-
         dataset3 = []
-
         # ---  return to this .strip to remove more from the strings later  ---
-
         dataset = [line.strip("  - ' \n").split(',') for line in open(path)]
         dataset2 = dataset
-
         for word in lines[0].split():
             if word.isdigit():
                 dataset3.append(int(word))
@@ -78,25 +68,10 @@ def importing_file():
     else:
         print("First Pass = ", first_pass)
     print(loading_entries, " = loading entries")
-    count_entry(loading_entries, dataset2)
     return loading_entries, dataset2
 
 
 # |---------------|  END Importing the data file function |------------------|
-
-
-"""***************************************************************************
-|                          Keeping count of entries                          |
-***************************************************************************"""
-
-
-# I need to keep track of entries and be able to call in each function and to return values to
-
-
-def count_entry(number_entries_count, dataset2_count):
-    loading_entries_count, dataset2_count2 = number_entries_count, dataset2_count
-    return loading_entries_count, dataset2_count
-# *-----------------*  END Keeping count of entries FUNC. *-------------------*
 
 
 """***************************************************************************
@@ -123,22 +98,23 @@ def credits_f():
 
 def main():
 
-    local_tally = big_class.bigclass.get_tally
+    entries = big_class.bigclass.get_tally
 
-    print(f"There are {local_tally} entries")
+    print(f"There are {entries} entries")
     print()
-    print("        |        Enter Your Choice of Menu   |")
-    print("        |------------------------------------|")
-    print("        |    1.| To Add An Entry.            |")
-    print("        |    2.| To Delete An Entry.         |")
-    print("        |    3.| To Display All Entries.     |")
-    print("        |    4.| To Goto Find Menu.          |")
-    print("        |    5.| To Exit From The Program.   |")
-    print()
-    print()
+    print("""
+        |        Enter Your Choice of Menu   |
+        |------------------------------------|
+        |    1.| To Add An Entry.            |
+        |    2.| To Delete An Entry.         |
+        |    3.| To Display All Entries.     |
+        |    4.| To Goto Find Menu.          |
+        |    5.| To Exit From The Program.   |
+        
+    """)
     menu()
 
-    # fileout section needs to add back in later (number_entries)
+    # fileout section needs to add back in later
 
 # |--------------------------|   END MAIN FUNC. ! |-------------------------|
 
@@ -148,25 +124,25 @@ def main():
 **************************************************************************"""
 
 
-def menu():  # to select one of the listed func.
+def menu():  # to select one of the listed functions.
 
     print("       ---  Please Type Your Choice of Menu ---")
     users_choice = int(input())
     if users_choice == 1:
-        add_f()         # call of add func
+        add_f()                 # call of add func
         print()
         main()
     elif users_choice == 2:
         pass
         main()
-        # delete()               # call of delete func
+        # delete()              # call of delete func
     elif users_choice == 3:
-        display()       # call of display func
+        display()               # call of display func
         main()
     elif users_choice == 4:
         pass
         main()
-        # find(users_choice2)     # call of find menu
+        # find()                # call of find menu
     elif users_choice == 5:
         print("       Thank you for using the database program")
         print("       You will now exit to the command prompt.")
@@ -183,7 +159,7 @@ def menu():  # to select one of the listed func.
 
 
 """****************************************************************
-|                         Add_f Function                          |
+|                         add_f Function                          |
 ****************************************************************"""
 
 
@@ -208,63 +184,35 @@ def add_f():
     # *-------------------------------------------------------------*
     # change formatting to fit input/output file better, later on
 
-    print("          Name             -  : ")
-    name_str = input(str())
-    name1 = "Name          - "
-    name1 += name_str
-
+    name_str = [str(input("Name: "))]
     print()
-    print("          Address          -  : ")
-    address_str = input(str())
-    address1 = "Address       - "
-    address1 += address_str
-
+    address_str = [str(input("Address: "))]
     print()
-    print("          Sex              -  : ")
-    sex_str = input(str())
-    sex1 = "Sex           - "
-    sex1 += sex_str
-
+    sex_str = [str(input("Sex: "))]
     print()
-    print("          Age              -  : ")
-    age_str = input(str())
-    age1 = "Age           - "
-    age1 += age_str
-
+    age_str = [str(input("Age: "))]
     print()
-    print("          Phone Number     -  : ")
-    phone_str = input(str())
-    phone1 = "Phone         - "
-    phone1 += phone_str
-
+    phone_str = [str(input("Phone number: "))]
     print()
-    print("          Date of Birth    -  : ")
-    birthday_str = input(str())
-    birthday1 = "Date of Birth - "
-    birthday1 += birthday_str
+    birthday_str = [str(input("Date of birth: "))]
 
     # adding the date stamp
     date_of_entry_str = datetime.date.today()
     date_of_entry_str2 = time.strftime("%H:%M:%S")
-    date_stamp = "Date of File  - "
+    date_stamp = ""
     date_stamp += str(date_of_entry_str)
     date_stamp += str(" at ")
     date_stamp += str(date_of_entry_str2)
+    date_tmp = [date_stamp]
 
     # Append each entry onto the dataset list
-    data_set2_add.append(name1)
-    data_set2_add.append(",")
-    data_set2_add.append(address1)
-    data_set2_add.append(",")
-    data_set2_add.append(sex1)
-    data_set2_add.append(",")
-    data_set2_add.append(age1)
-    data_set2_add.append(",")
-    data_set2_add.append(phone1)
-    data_set2_add.append(",")
-    data_set2_add.append(birthday1)
-    data_set2_add.append(",")
-    data_set2_add.append(date_stamp)
+    data_set2_add.append(name_str)
+    data_set2_add.append(address_str)
+    data_set2_add.append(sex_str)
+    data_set2_add.append(age_str)
+    data_set2_add.append(phone_str)
+    data_set2_add.append(birthday_str)
+    data_set2_add.append(date_tmp)
     count += 1
     num_temp_entries = str(count)
     num_temp_entries += "             - # of Entries."
@@ -319,3 +267,13 @@ def display():
     print()
 
 # ***********************    END DISPLAY FUNC.   **********************
+
+"""
+f = open("demofile3.txt", "w")
+f.write("Woops! I have deleted the content!")
+f.close()
+
+#open and read the file after the appending:
+f = open("demofile3.txt", "r")
+print(f.read())
+"""
