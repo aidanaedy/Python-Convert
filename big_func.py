@@ -74,6 +74,25 @@ def importing_file():
 # |---------------|  END Importing the data file function |------------------|
 
 
+"""***********************************************************************
+|                           output Function                              |
+|                     To output the data to the file                     |
+***********************************************************************"""
+
+
+def output():
+    bclass = big_class.bigclass
+    data_set2_display = bclass.get_data_set
+
+    # add '\n' after each item of a list
+    n_names = ["{}\n".format(i).strip("['").replace("']", "").replace("'", "").replace("', '", "")
+               .replace("]", "")for i in data_set2_display]
+    with open('bigdos.in', 'w') as fp:
+        fp.writelines(n_names)
+
+# ***********************    END of Output FUNC.   **********************
+
+
 """***************************************************************************
 |                             *  credits_f FUNC  *                           |
 ***************************************************************************"""
@@ -268,20 +287,4 @@ def display():
     print()
 
 # ***********************    END DISPLAY FUNC.   **********************
-
-
-"""***********************************************************************
-|                           output Function                             |
-***********************************************************************"""
-
-
-def output():
-    bclass = big_class.bigclass
-    data_set2_display = bclass.get_data_set
-
-    # add '\n' after each item of a list
-    n_names = ["{}\n".format(i).strip("['").replace("']", "").replace("'", "").replace("', '", "")
-               .replace("]", "")for i in data_set2_display]
-    with open('bigdos.in', 'w') as fp:
-        fp.writelines(n_names)
 
