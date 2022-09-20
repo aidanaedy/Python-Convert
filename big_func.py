@@ -146,6 +146,7 @@ def menu():  # to select one of the listed functions.
     elif users_choice == 5:
         print("       Thank you for using the database program")
         print("       You will now exit to the command prompt.")
+        output()
         print()
         print()
         credits_f()
@@ -268,12 +269,19 @@ def display():
 
 # ***********************    END DISPLAY FUNC.   **********************
 
-"""
-f = open("demofile3.txt", "w")
-f.write("Woops! I have deleted the content!")
-f.close()
 
-#open and read the file after the appending:
-f = open("demofile3.txt", "r")
-print(f.read())
-"""
+"""***********************************************************************
+|                           output Function                             |
+***********************************************************************"""
+
+
+def output():
+    bclass = big_class.bigclass
+    data_set2_display = bclass.get_data_set
+
+    # add '\n' after each item of a list
+    n_names = ["{}\n".format(i).strip("['").replace("']", "").replace("'", "").replace("', '", "")
+               .replace("]", "")for i in data_set2_display]
+    with open('bigdos.in', 'w') as fp:
+        fp.writelines(n_names)
+

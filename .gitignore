@@ -2,4 +2,6 @@ bigdos.in
 class.py
 .git
 .idea
+.txt
+workspace.code-workspace
 venv
