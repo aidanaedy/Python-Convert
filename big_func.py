@@ -84,7 +84,7 @@ def output():
     bclass = big_class.bigclass
     data_set2_display = bclass.get_data_set
 
-    # add '\n' after each item of a list
+    # add '\n' after each item of a list and remove the unwanted formatting
     n_names = ["{}\n".format(i).strip("['").replace("']", "").replace("'", "").replace("', '", "")
                .replace("]", "")for i in data_set2_display]
     with open('bigdos.in', 'w') as fp:
@@ -159,9 +159,9 @@ def menu():  # to select one of the listed functions.
         display()               # call of display func
         main()
     elif users_choice == 4:
-        pass
+        find()                  # call of find menu
+        print()
         main()
-        # find()                # call of find menu
     elif users_choice == 5:
         print("       Thank you for using the database program")
         print("       You will now exit to the command prompt.")
@@ -288,3 +288,63 @@ def display():
 
 # ***********************    END DISPLAY FUNC.   **********************
 
+
+"""** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** *
+#                                          START OF FIND MENU FUNC.
+
+# ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** """
+
+
+def find():
+    print("""
+    *** Enter The Type Of Find You Require ***
+    __________________________________________
+    1.| To Find A Named Entry.
+    2.| To Find Persons with A Particular Birthday.
+    3.| To Find Persons in An Age Range.
+    4.| To Find Persons With A Phone Number.
+    5.| To Exit From The Find Menu.
+    """)
+
+    print()
+    users_choice2 = int(input("Your Choice of Find Menu is:- #"))
+    print()
+    print()
+
+    if users_choice2 == 1:
+        named()                 # dec of named func break
+        main()
+    elif users_choice2 == 2:
+        birthday()              # dec of birthday func break
+        main()
+    elif users_choice2 == 3:
+        age_range()              # dec of age func break
+        main()
+    elif users_choice2 == 4:
+        phone()                  # dec of the phone func
+        main()
+    elif users_choice2 == 5:
+        print(" You are now going to exit the find menu ")  # break
+        print()
+        main()
+    else:
+        print("          You Have Made An Incorrect Choice")
+        main()
+
+# ** ** ** ** ** ** ** ** ** ** ** ** END FIND MENU. ** ** ** ** ** ** ** ** ** ** ** ** *
+
+
+def named():
+    pass
+
+
+def birthday():
+    pass
+
+
+def age_range():
+    pass
+
+
+def phone():
+    pass
