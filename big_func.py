@@ -312,19 +312,19 @@ def find():
     print()
 
     if users_choice2 == 1:
-        named()                 # dec of named func break
+        named()                 # dec of named func
         main()
     elif users_choice2 == 2:
-        birthday()              # dec of birthday func break
+        birthday()              # dec of birthday func
         main()
     elif users_choice2 == 3:
-        age_range()              # dec of age func break
+        age_range()              # dec of age func
         main()
     elif users_choice2 == 4:
         phone()                  # dec of the phone func
         main()
     elif users_choice2 == 5:
-        print(" You are now going to exit the find menu ")  # break
+        print(" You are now going to exit the find menu ")
         print()
         main()
     else:
@@ -333,9 +333,41 @@ def find():
 
 # ** ** ** ** ** ** ** ** ** ** ** ** END FIND MENU. ** ** ** ** ** ** ** ** ** ** ** ** *
 
-
+    
+"""********************************************************************
+*                         START OF NAMED PERSON FUNC.                                *
+********************************************************************"""
 def named():
-    pass
+
+#    int s;
+#    int flew;
+#    char dummy [1];
+#    char find[50];
+#	char findupr[50];
+    bclass = big_class.bigclass
+    data_set2_display = bclass.get_data_set
+    print()
+    input("Please Enter The Persons Name To Search For -  ")
+    gets(find)
+    strcpy (findupr, find)
+    _strupr(findupr)
+    for  i in range(len(data_set2_display)):
+              	     if (!strcmp(findupr, data_set2_display[s].name))
+              	     print("          Name          - ", data_set2_display[s].name 
+                	 	      , "          Address       - ", data_set2_display[s].address
+                    	 	  , "          Sex           - ", data_set2_display[s].sex 
+                    	 	  , "          Age           - ", data_set2_display[s].age 
+                	     	  , "          Phone         - ", data_set2_display[s].phone
+                	     	  , "          Date of Birth - ", data_set2_display[s].birthday
+                	     	  , "          Date of Entry - ", data_set2_display[poo + 6])
+                	 	  )
+                      flew = 1
+   if (flew!=1)
+   print("There Were No Files Of That Name Found ")
+   print("***---------- Are You Ready To Continue ? -----------***")
+   dummy[1] = input()
+            
+#/***********************  END FIND NAME FUNC.  ***********************/
 
 
 def birthday():
