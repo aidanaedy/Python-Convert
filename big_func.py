@@ -352,28 +352,49 @@ def named():
     length1 = len(data_set2_display)
     while i < (length1 - 6):
         if find_upr == data_set2_display[i]:
-            print("          Name          - ", data_set2_display[i]
-                  , "          Address       - ", data_set2_display[i + 1]
-                  , "          Sex           - ", data_set2_display[i + 2]
-                  , "          Age           - ", data_set2_display[i + 3]
-                  , "          Phone         - ", data_set2_display[i + 4]
-                  , "          Date of Birth - ", data_set2_display[i + 5]
+            print("           Name          - ", data_set2_display[i], "\n"
+                  , "          Address       - ", data_set2_display[i + 1], "\n"
+                  , "          Sex           - ", data_set2_display[i + 2], "\n"
+                  , "          Age           - ", data_set2_display[i + 3], "\n"
+                  , "          Phone         - ", data_set2_display[i + 4], "\n"
+                  , "          Date of Birth - ", data_set2_display[i + 5], "\n"
                   , "          Date of Entry - ", data_set2_display[i + 6])
             break
             flew = 1
             if flew != 1:
                 print("There Were No Files Of That Name Found ")
-        print("***---------- Are You Ready To Continue ? -----------***")
-        print(i)
-        print(data_set2_display[i])
         i += 7
-        dummy = input()
-            
+
 # ***********************  END FIND NAME FUNC.  ***********************
 
 
 def birthday():
-    pass
+    bclass = big_class.bigclass
+    data_set2_display = bclass.get_data_set
+    find_bday = list()
+    i = 1
+    print()
+    finder = str(input("Please Enter The Persons Birthday To Search For -  "))
+    find_bday.insert(0, finder)
+    print(find_bday)
+    length1 = len(data_set2_display)
+    while i < (length1 - 6):
+        if find_bday == data_set2_display[i+5]:
+            print("           Name          - ", data_set2_display[i], "\n"
+                  , "          Address       - ", data_set2_display[i + 1], "\n"
+                  , "          Sex           - ", data_set2_display[i + 2], "\n"
+                  , "          Age           - ", data_set2_display[i + 3], "\n"
+                  , "          Phone         - ", data_set2_display[i + 4], "\n"
+                  , "          Date of Birth - ", data_set2_display[i + 5], "\n"
+                  , "          Date of Entry - ", data_set2_display[i + 6])
+            break
+            flew = 1
+            if flew != 1:
+                print("There Were No Files Of That Birthday Found ")
+        i += 7
+
+
+# ***********************  END FIND BIRTHDAY FUNC.  ***********************
 
 
 def age_range():
@@ -381,4 +402,28 @@ def age_range():
 
 
 def phone():
-    pass
+    bclass = big_class.bigclass
+    data_set2_display = bclass.get_data_set
+    find_phone = list()
+    i = 1
+    print()
+    finder = str(input("Please Enter The Persons Phone Number To Search For -  "))
+    find_phone.insert(0, finder)
+    print(find_phone)
+    length1 = len(data_set2_display)
+    while i < (length1 - 6):
+        if find_phone == data_set2_display[i + 4]:
+            print("           Name          - ", data_set2_display[i], "\n"
+                  , "          Address       - ", data_set2_display[i + 1], "\n"
+                  , "          Sex           - ", data_set2_display[i + 2], "\n"
+                  , "          Age           - ", data_set2_display[i + 3], "\n"
+                  , "          Phone         - ", data_set2_display[i + 4], "\n"
+                  , "          Date of Birth - ", data_set2_display[i + 5], "\n"
+                  , "          Date of Entry - ", data_set2_display[i + 6])
+            break
+            flew = 1
+            if flew != 1:
+                print("There Were No Files Of That Number Found ")
+        i += 7
+
+# ***********************  END FIND PHONE NUMBER FUNC.  ***********************
