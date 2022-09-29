@@ -343,17 +343,15 @@ def find():
 def named():
     bclass = big_class.bigclass
     data_set2_display = bclass.get_data_set
-    find_upr = []
+    find_upr = list()
     i = 1
     print()
     finder = str(input("Please Enter The Persons Name To Search For -  "))
     find_upr.insert(0, finder.upper())
-    flist[0] = find_upr.copy()
-    print(find_upr[0])
-    print(flist)
+    print(find_upr)
     length1 = len(data_set2_display)
     while i < (length1 - 6):
-        if find_upr[0] == data_set2_display[i]:
+        if find_upr == data_set2_display[i]:
             print("          Name          - ", data_set2_display[i]
                   , "          Address       - ", data_set2_display[i + 1]
                   , "          Sex           - ", data_set2_display[i + 2]
@@ -361,14 +359,12 @@ def named():
                   , "          Phone         - ", data_set2_display[i + 4]
                   , "          Date of Birth - ", data_set2_display[i + 5]
                   , "          Date of Entry - ", data_set2_display[i + 6])
+            break
             flew = 1
             if flew != 1:
                 print("There Were No Files Of That Name Found ")
         print("***---------- Are You Ready To Continue ? -----------***")
         print(i)
-        print(type(find_upr[0]))
-        print(type(data_set2_display[i]))
-        print(find_upr[0])
         print(data_set2_display[i])
         i += 7
         dummy = input()
