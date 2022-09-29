@@ -19,6 +19,7 @@
 import datetime
 import time
 import big_class
+import ast
 
 # |----------------------|  FUNCTION DEFINITION'S |--------------------------|
 
@@ -335,39 +336,44 @@ def find():
 
     
 """********************************************************************
-*                         START OF NAMED PERSON FUNC.                                *
+*                         START OF NAMED PERSON FUNC.                 *
 ********************************************************************"""
-def named():
 
-#    int s;
-#    int flew;
-#    char dummy [1];
-#    char find[50];
-#	char findupr[50];
+
+def named():
     bclass = big_class.bigclass
     data_set2_display = bclass.get_data_set
+    find_upr = []
+    i = 1
     print()
-    input("Please Enter The Persons Name To Search For -  ")
-    gets(find)
-    strcpy (findupr, find)
-    _strupr(findupr)
-    for  i in range(len(data_set2_display)):
-              	     if (!strcmp(findupr, data_set2_display[s].name))
-              	     print("          Name          - ", data_set2_display[s].name 
-                	 	      , "          Address       - ", data_set2_display[s].address
-                    	 	  , "          Sex           - ", data_set2_display[s].sex 
-                    	 	  , "          Age           - ", data_set2_display[s].age 
-                	     	  , "          Phone         - ", data_set2_display[s].phone
-                	     	  , "          Date of Birth - ", data_set2_display[s].birthday
-                	     	  , "          Date of Entry - ", data_set2_display[poo + 6])
-                	 	  )
-                      flew = 1
-   if (flew!=1)
-   print("There Were No Files Of That Name Found ")
-   print("***---------- Are You Ready To Continue ? -----------***")
-   dummy[1] = input()
+    finder = str(input("Please Enter The Persons Name To Search For -  "))
+    find_upr.insert(0, finder.upper())
+    flist[0] = find_upr.copy()
+    print(find_upr[0])
+    print(flist)
+    length1 = len(data_set2_display)
+    while i < (length1 - 6):
+        if find_upr[0] == data_set2_display[i]:
+            print("          Name          - ", data_set2_display[i]
+                  , "          Address       - ", data_set2_display[i + 1]
+                  , "          Sex           - ", data_set2_display[i + 2]
+                  , "          Age           - ", data_set2_display[i + 3]
+                  , "          Phone         - ", data_set2_display[i + 4]
+                  , "          Date of Birth - ", data_set2_display[i + 5]
+                  , "          Date of Entry - ", data_set2_display[i + 6])
+            flew = 1
+            if flew != 1:
+                print("There Were No Files Of That Name Found ")
+        print("***---------- Are You Ready To Continue ? -----------***")
+        print(i)
+        print(type(find_upr[0]))
+        print(type(data_set2_display[i]))
+        print(find_upr[0])
+        print(data_set2_display[i])
+        i += 7
+        dummy = input()
             
-#/***********************  END FIND NAME FUNC.  ***********************/
+# ***********************  END FIND NAME FUNC.  ***********************
 
 
 def birthday():
