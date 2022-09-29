@@ -398,7 +398,32 @@ def birthday():
 
 
 def age_range():
-    pass
+    bclass = big_class.bigclass
+    data_set2_display = bclass.get_data_set
+    find_age = list()
+    i = 1
+    print()
+    finder = str(input("Please Enter The Persons Age Range To Search For -  "))
+    find_age.insert(0, finder)
+    print(find_age)
+    length1 = len(data_set2_display)
+    while i < (length1 - 6):
+        if find_age == data_set2_display[i + 3]:
+            print("           Name          - ", data_set2_display[i], "\n"
+                  , "          Address       - ", data_set2_display[i + 1], "\n"
+                  , "          Sex           - ", data_set2_display[i + 2], "\n"
+                  , "          Age           - ", data_set2_display[i + 3], "\n"
+                  , "          Phone         - ", data_set2_display[i + 4], "\n"
+                  , "          Date of Birth - ", data_set2_display[i + 5], "\n"
+                  , "          Date of Entry - ", data_set2_display[i + 6])
+            break
+            flew = 1
+            if flew != 1:
+                print("There Were No Files Of That Birthday Found ")
+        i += 7
+
+
+# ***********************  END FIND AGE RANGE FUNC.  ***********************
 
 
 def phone():
@@ -423,7 +448,7 @@ def phone():
             break
             flew = 1
             if flew != 1:
-                print("There Were No Files Of That Number Found ")
+                print("There Were No Files Of That Birthday Found ")
         i += 7
 
 # ***********************  END FIND PHONE NUMBER FUNC.  ***********************
