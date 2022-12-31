@@ -5,28 +5,25 @@
 #        Version 1.5   *******DOS  / Python VERSION*******              *
 # ********************************************************************"""
 
-
-import big_func
 import big_class
 
+b_class = big_class.bigclass
+b_credits = big_class.b_credits
+b_main = big_class.b_main
+b_initial = big_class.b_initial
 
-bclass = big_class.bigclass
 """***********************************************************************
-# *************************  Calling Functions  **************************
+# *************************   Calling Methods   **************************
 # *********************************************************************"""
-
-# just figured out passing value in Python, now need to set a value that when not_initial_pass is not zero,
-# say other menu item is used, the value in count_entry
-# changes to the menu number last used and so you can get the updated entries etc.
 
 
 if __name__ == '__main__':
 
-    counter = big_func.initial(0)
+    counter = b_initial.initial(0)
     count = counter[0]
-    bclass.set_data_set(counter[1])
-    bclass.set_tally(int(count))
+    b_class.set_data_set(counter[1])
+    b_class.set_tally(int(count))
 
-    big_func.credits_f()
+    b_credits.credits_f()
 
-    big_func.main()
+    b_main.main()
