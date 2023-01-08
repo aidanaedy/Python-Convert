@@ -4,7 +4,7 @@
 
 import datetime
 import time
-import ast
+
 
 # I am keeping track of entries with getters and setters
 
@@ -360,7 +360,7 @@ class Display:
             print()
             print("          That was the last Entry.......")
             print("          You will now return to the MAIN MENU. ")
-            poo = 0
+            #  poo = 0  #  commented as not needed but may reinstate after testing
             print()
         print(f"count =  {count}")
         print()
@@ -450,12 +450,11 @@ class Named:
                       , "          Age           - ", data_set2_display[i + 3], "\n"
                       , "          Phone         - ", data_set2_display[i + 4], "\n"
                       , "          Date of Birth - ", data_set2_display[i + 5], "\n"
-                      , "          Date of Entry - ", data_set2_display[i + 6])
-                break
-                flew = 1
-                if flew != 1:
-                    print("There Were No Files Of That Name Found ")
+                      , "          Date of Entry - ", data_set2_display[i + 6], "\n")
+            else:
+                pass
             i += 7
+        b_find.find()
 
 
 b_named = Named()
@@ -478,18 +477,16 @@ class Birthday:
         print(find_b_day)
         length1 = len(data_set2_display)
         while i < (length1 - 6):
-            if find_bday == data_set2_display[i + 5]:
+            if find_b_day == data_set2_display[i + 5]:
                 print("           Name          - ", data_set2_display[i], "\n"
                       , "          Address       - ", data_set2_display[i + 1], "\n"
                       , "          Sex           - ", data_set2_display[i + 2], "\n"
                       , "          Age           - ", data_set2_display[i + 3], "\n"
                       , "          Phone         - ", data_set2_display[i + 4], "\n"
                       , "          Date of Birth - ", data_set2_display[i + 5], "\n"
-                      , "          Date of Entry - ", data_set2_display[i + 6])
-                break
-                flew = 1
-                if flew != 1:
-                    print("There Were No Files Of That Birthday Found ")
+                      , "          Date of Entry - ", data_set2_display[i + 6], "\n")
+            else:
+                pass
             i += 7
 
 
@@ -520,11 +517,9 @@ class AgeRange:
                       , "          Age           - ", data_set2_display[i + 3], "\n"
                       , "          Phone         - ", data_set2_display[i + 4], "\n"
                       , "          Date of Birth - ", data_set2_display[i + 5], "\n"
-                      , "          Date of Entry - ", data_set2_display[i + 6])
-                break
-                flew = 1
-                if flew != 1:
-                    print("There Were No Files Of That Birthday Found ")
+                      , "          Date of Entry - ", data_set2_display[i + 6], "\n")
+            else:
+                pass
             i += 7
 
 
@@ -555,11 +550,9 @@ class Phone:
                       , "          Age           - ", data_set2_display[i + 3], "\n"
                       , "          Phone         - ", data_set2_display[i + 4], "\n"
                       , "          Date of Birth - ", data_set2_display[i + 5], "\n"
-                      , "          Date of Entry - ", data_set2_display[i + 6])
-                break
-                flew = 1
-                if flew != 1:
-                    print("There Were No Files Of That Birthday Found ")
+                      , "          Date of Entry - ", data_set2_display[i + 6], "\n")
+            else:
+                pass
             i += 7
 
 

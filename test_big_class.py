@@ -21,8 +21,14 @@ class MyTestCase(unittest.TestCase):
         # Once I have the method to be tested assigned to = a, I then take the expected output and assign to = b.
         self.assertEqual(a, b)
 
+    def test_creditsisstring(self):
+        self.assertTrue(big_class.b_credits.credits_f().isascii())
+
+
 
 # this couple of lines sets up so that if this is the main run program file (rather than a secondary file)
 # that it will run this as a unittest file without needing: "python -m unittest test_big_class.py" from command line
+
+
 if __name__ == '__main__':
     unittest.main()
