@@ -2,9 +2,7 @@
 #                          Keeping count of entries                          *
 ***************************************************************************"""
 
-import datetime
-import time
-
+from credits import b_credits
 
 # I am keeping track of entries with getters and setters
 
@@ -117,10 +115,9 @@ b_import = ImportingFile()
 # |---------------|  END Importing the data file METHOD |------------------|
 
 
-"""***********************************************************************
-|                           output METHOD                              |
-|                     To output the data to the file                     |
-***********************************************************************"""
+"""******************************************************************************
+|                          START OF THE OUTPUT METHOD.                           |
+******************************************************************************"""
 
 
 class Output:
@@ -143,34 +140,9 @@ b_output = Output()
 # ***********************    END of Output METHOD.   **********************
 
 
-"""***************************************************************************
-|                             *  credits_f METHOD  *                           |
-***************************************************************************"""
-
-
-class Credits:
-    def __init__(self):
-        self.title = """
-    --------------------------------------------------------
-    |                ADDRESS BOOK PROGRAM                  |
-    |             ---------------------------              |
-    |                   BY AIDAN AEDY                      |
-    |            PYTHON REGISTERED VERSION 1.5             |
-    |              LICENSED TO - AIDAN AEDY                |
-    --------------------------------------------------------
-        """
-
-    def credits_f(self):
-        return self.title
-
-
-b_credits = Credits()
-
-# ***********************    END of Output METHOD.   **********************
-
-"""*************************************************************************
-|                            START OF MAIN METHOD                        |
-*************************************************************************"""
+"""******************************************************************************
+|                           START OF THE MAIN METHOD.                           |
+******************************************************************************"""
 
 
 class Main:
@@ -200,9 +172,9 @@ b_main = Main()
 # |--------------------------|   END MAIN METHOD. ! |-------------------------|
 
 
-"""**************************************************************************
-|                            START OF MAIN MENU METHOD.                       |
-**************************************************************************"""
+"""******************************************************************************
+|                          START OF MAIN MENU METHOD.                           |
+******************************************************************************"""
 
 
 class Menu:
@@ -214,15 +186,17 @@ class Menu:
         print("       ---  Please Type Your Choice of Menu ---")
         users_choice = int(input())
         if users_choice == 1:
+            from add import b_add
             b_add.add_f()  # call of add METHOD
             print()
             b_main.main()
         elif users_choice == 2:
+            # Delete.delete()              # call of delete method
             pass
             b_main.main()
-            # Delete.delete()              # call of delete METHOD
         elif users_choice == 3:
-            b_display.display()  # call of display METHOD
+            from display import b_display
+            b_display.display()  # call of display method
             b_main.main()
         elif users_choice == 4:
             b_find.find()  # call of find menu
@@ -246,135 +220,9 @@ b_menu = Menu()
 # *---------------*     END MAIN MENU METHOD.    *------------------*
 
 
-"""****************************************************************
-|                         add_f METHOD                          |
-****************************************************************"""
-
-
-class Add:
-    def __init__(self):
-        pass
-
-    def add_f(self):
-        bclass = bigclass
-        data_set2_add = bclass.get_data_set
-        count = int(bclass.get_tally)
-
-        print()
-        print("----------------------------------------------------------------")
-        groo = count + 1
-
-        print("          Please input the persons details for:-")
-        print("          Name, ", "Address, ", "Sex, ", "Age, ")
-        print("          Phone Numbers ", "and Birthday. ")
-        print(f"          This Is Entry # {groo} In Your Address Book.")
-        print()
-        print()
-
-        # *-------------------------------------------------------------*
-        #              THIS IS THE MAIN INPUT SECTION                   *
-        # *-------------------------------------------------------------*
-        # change formatting to fit input/output file better, later on
-
-        name_str = [str(input("Name: ")).capitalize()]
-        print()
-        address_str = [str(input("Address: ")).capitalize()]
-        print()
-        sex_str = [str(input("Sex: ")).upper()]
-        print()
-        age_str = [str(input("Age: "))]
-        print()
-        phone_str = [str(input("Phone number: "))]
-        print()
-        birthday_str = [str(input("Date of birth: "))]
-
-        # adding the date stamp
-        date_of_entry_str = datetime.date.today()
-        date_of_entry_str2 = time.strftime("%H:%M:%S")
-        date_stamp = ""
-        date_stamp += str(date_of_entry_str)
-        date_stamp += str(" at ")
-        date_stamp += str(date_of_entry_str2)
-        date_tmp = [date_stamp]
-
-        # Append each entry onto the dataset list
-        data_set2_add.append(name_str)
-        data_set2_add.append(address_str)
-        data_set2_add.append(sex_str)
-        data_set2_add.append(age_str)
-        data_set2_add.append(phone_str)
-        data_set2_add.append(birthday_str)
-        data_set2_add.append(date_tmp)
-        count += 1
-        num_temp_entries = str(count)
-        num_temp_entries += "             - # of Entries."
-        data_set2_add[0] = num_temp_entries
-
-        bclass.set_tally(int(count))
-
-        print(f"No of tallies : {bclass.get_tally}")
-        print("          You will now return to the MAIN MENU. ")
-
-        return data_set2_add
-
-
-b_add = Add()
-
-# *--------------------      END add_f METHOD.    --------------------------*
-
-
-"""***********************************************************************
-|                            display METHOD                              |
-***********************************************************************"""
-
-
-class Display:
-    def __init__(self):
-        pass
-
-    def display(self):
-        bclass = bigclass
-        data_set2_display = bclass.get_data_set
-        count = bclass.get_tally
-
-        poo = 0
-        sloo = 1
-        poo += 1
-        dummy = "y"
-        print()
-        print("          ***   This is the ", sloo, "of ", count, " entries in the database.   ***")
-
-        while sloo < count + 1:
-            print("          Name          - ", data_set2_display[poo])
-            print("          Address       - ", data_set2_display[poo + 1])
-            print("          Sex           - ", data_set2_display[poo + 2])
-            print("          Age           - ", data_set2_display[poo + 3])
-            print("          Phone         - ", data_set2_display[poo + 4])
-            print("          Date of Birth - ", data_set2_display[poo + 5])
-            print("          Date of Entry - ", data_set2_display[poo + 6])
-            print("     Entry Number: ", sloo, "     ...Are you ready for Another ?...")
-            input(str(dummy))
-            sloo += 1
-            poo += 7
-        else:
-            print()
-            print("          That was the last Entry.......")
-            print("          You will now return to the MAIN MENU. ")
-            #  poo = 0  #  commented as not needed but may reinstate after testing
-            print()
-        print(f"count =  {count}")
-        print()
-
-
-b_display = Display()
-
-# ***********************    END DISPLAY METHOD.   **********************
-
-
-"""** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** *
-#                                          START OF FIND MENU METHOD.
-
-# ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** """
+"""******************************************************************************
+|                          START OF FIND MENU METHOD.                           |
+******************************************************************************"""
 
 
 class Find:
@@ -398,9 +246,11 @@ class Find:
         print()
 
         if users_choice2 == 1:
+            from named import b_named
             b_named.named()  # dec of named METHOD
             b_main.main()
         elif users_choice2 == 2:
+            from birthday import b_birthday
             b_birthday.birthday()  # dec of birthday METHOD
             b_main.main()
         elif users_choice2 == 3:
@@ -424,75 +274,8 @@ b_find = Find()
 
 
 """********************************************************************
-*                        START OF NAMED PERSON METHOD.                *
+*                START OF FIND AGE RANGE PERSON METHOD.               *
 ********************************************************************"""
-
-
-class Named:
-    def __init__(self):
-        pass
-
-    def named(self):
-        bclass = bigclass
-        data_set2_display = bclass.get_data_set
-        find_capital = list()
-        i = 1
-        print()
-        finder = str(input("Please Enter The Persons Name To Search For -  "))
-        find_capital.insert(0, finder.capitalize())
-        print(find_capital)
-        length1 = len(data_set2_display)
-        while i < (length1 - 6):
-            if find_capital == data_set2_display[i]:
-                print("           Name          - ", data_set2_display[i], "\n"
-                      , "          Address       - ", data_set2_display[i + 1], "\n"
-                      , "          Sex           - ", data_set2_display[i + 2], "\n"
-                      , "          Age           - ", data_set2_display[i + 3], "\n"
-                      , "          Phone         - ", data_set2_display[i + 4], "\n"
-                      , "          Date of Birth - ", data_set2_display[i + 5], "\n"
-                      , "          Date of Entry - ", data_set2_display[i + 6], "\n")
-            else:
-                pass
-            i += 7
-        b_find.find()
-
-
-b_named = Named()
-
-# ***********************  END FIND NAME CLASS  ***********************
-
-
-class Birthday:
-    def __init__(self):
-        pass
-
-    def birthday(self):
-        bclass = bigclass
-        data_set2_display = bclass.get_data_set
-        find_b_day = list()
-        i = 1
-        print()
-        finder = str(input("Please Enter The Persons Birthday To Search For -  "))
-        find_b_day.insert(0, finder)
-        print(find_b_day)
-        length1 = len(data_set2_display)
-        while i < (length1 - 6):
-            if find_b_day == data_set2_display[i + 5]:
-                print("           Name          - ", data_set2_display[i], "\n"
-                      , "          Address       - ", data_set2_display[i + 1], "\n"
-                      , "          Sex           - ", data_set2_display[i + 2], "\n"
-                      , "          Age           - ", data_set2_display[i + 3], "\n"
-                      , "          Phone         - ", data_set2_display[i + 4], "\n"
-                      , "          Date of Birth - ", data_set2_display[i + 5], "\n"
-                      , "          Date of Entry - ", data_set2_display[i + 6], "\n")
-            else:
-                pass
-            i += 7
-
-
-b_birthday = Birthday()
-
-# ***********************  END FIND BIRTHDAY CLASS  ***********************
 
 
 class AgeRange:
@@ -526,6 +309,11 @@ class AgeRange:
 b_age_range = AgeRange()
 
 # ***********************  END FIND AGE RANGE CLASS  ***********************
+
+
+"""********************************************************************
+*                   START OF FIND PHONE NUMBER METHOD.                *
+********************************************************************"""
 
 
 class Phone:

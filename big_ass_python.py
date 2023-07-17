@@ -6,9 +6,10 @@
 # ********************************************************************"""
 
 import big_class
+import credits
 
-b_class = big_class.bigclass
-b_credits = big_class.b_credits
+# b_class = big_class
+b_credits = credits.b_credits
 b_main = big_class.b_main
 b_initial = big_class.b_initial
 
@@ -19,11 +20,11 @@ b_initial = big_class.b_initial
 
 if __name__ == '__main__':
 
-    counter = b_initial.initial(0)
+    counter = big_class.b_initial.initial(0)  #b_initial.initial(0)
     count = counter[0]
-    b_class.set_data_set(counter[1])
-    b_class.set_tally(int(count))
+    big_class.bigclass.set_data_set(counter[1])
+    big_class.bigclass.set_tally(int(count))
 
     b_credits.credits_f()
 
-    b_main.main()
+    big_class.b_main.main()
