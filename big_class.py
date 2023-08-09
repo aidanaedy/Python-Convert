@@ -87,17 +87,18 @@ class ImportingFile:
 
     def importing_file(self):
         # import the file and format to add to 'lines, dataset, number_entries' etc.
-
+        path = "bigdos.in"
+        loading_entries = 0
+        dataset2 = []
+        dataset3 = []
         first_pass = int()
 
         if first_pass < 1:
-            path = "bigdos.in"
             lines = [line for line in open(path)]
-            dataset3 = []
             # ---  return to this .strip to remove more from the strings later  ---
             dataset = [line.strip("  - ' \n").split(',') for line in open(path)]
             dataset2 = dataset
-            for word in lines[0].split():
+            for word in lines[0]:
                 if word.isdigit():
                     dataset3.append(int(word))
                     strings = [str(integer) for integer in dataset3]
