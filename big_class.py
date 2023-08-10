@@ -1,16 +1,17 @@
 """***************************************************************************
 #                          Keeping count of entries                          *
 ***************************************************************************"""
-
 from credits import b_credits
 
 # I am keeping track of entries with getters and setters
 
 
 class BigClass:
+
     def __init__(self):
         self._tally = 0
         self._data_set = 0
+        self.path = "bigdos.in"
 
     @property
     def get_tally(self):
@@ -86,33 +87,29 @@ class ImportingFile:
         pass
 
     def importing_file(self):
-        # import the file and format to add to 'lines, dataset, number_entries' etc.
-        path = "bigdos.in"
         loading_entries = 0
+        dataset = []
         dataset2 = []
-        dataset3 = []
         first_pass = int()
 
+        # If the first run, import the file and format to add to 'lines, dataset, number_entries' etc.
         if first_pass < 1:
-            lines = [line for line in open(path)]
+            lines = [line for line in open(bigclass.path)]
             # ---  return to this .strip to remove more from the strings later  ---
-            dataset = [line.strip("  - ' \n").split(',') for line in open(path)]
-            dataset2 = dataset
+            dataset = [line.upper().strip("  - ' \n").split(',') for line in open(bigclass.path)]
             for word in lines[0]:
                 if word.isdigit():
-                    dataset3.append(int(word))
-                    strings = [str(integer) for integer in dataset3]
+                    dataset2.append(int(word))
+                    strings = [str(integer) for integer in dataset2]
                     a_string = "".join(strings)
                     loading_entries = int(a_string)
                     first_pass += 1
         else:
             print("First Pass = ", first_pass)
-        print(loading_entries, " = loading entries")
-        return loading_entries, dataset2
+        return loading_entries, dataset
 
 
 b_import = ImportingFile()
-
 # |---------------|  END Importing the data file METHOD |------------------|
 
 
@@ -132,7 +129,7 @@ class Output:
         # add '\n' after each item of a list and remove the unwanted formatting
         n_names = ["{}\n".format(i).strip("['").replace("']", "").replace("'", "").replace("', '", "")
                        .replace("]", "") for i in data_set2_display]
-        with open('bigdos.in', 'w') as fp:
+        with open(bigclass.path, 'w') as fp:
             fp.writelines(n_names)
 
 
