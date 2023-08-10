@@ -1,5 +1,5 @@
 """****************************************************************
-|                         add_f METHOD                          |
+|                          add_f METHOD                           |
 ****************************************************************"""
 
 import datetime
@@ -12,28 +12,26 @@ class Add:
 
     def add_f(self):
         from big_class import bigclass
+        # Loading the data and count for use in this method
         data_set2_add = bigclass.get_data_set
         count = int(bigclass.get_tally)
 
-        print()
-        print("----------------------------------------------------------------")
-        groo = count + 1
-
-        print("          Please input the persons details for:-")
-        print("          Name, ", "Address, ", "Sex, ", "Age, ")
-        print("          Phone Numbers ", "and Birthday. ")
-        print(f"          This Is Entry # {groo} In Your Address Book.")
-        print()
-        print()
+        print(f"""\n \n
+          ---------------------------------------
+          Please input the persons details for:-
+                Name, Address, Sex, Age,
+                Phone Numbers and Birthday.
+          ---------------------------------------
+          This Is Entry # {count + 1} In Your Address Book. \n \n""")
 
         # *-------------------------------------------------------------*
         #              THIS IS THE MAIN INPUT SECTION                   *
         # *-------------------------------------------------------------*
-        # change formatting to fit input/output file better, later on
+        # changed to input as upper cae and removed all old I/O file format
 
-        name_str = [str(input("Name: ")).capitalize()]
+        name_str = [str(input("Name: ")).upper()]
         print()
-        address_str = [str(input("Address: ")).capitalize()]
+        address_str = [str(input("Address: ")).upper()]
         print()
         sex_str = [str(input("Sex: ")).upper()]
         print()
@@ -43,7 +41,7 @@ class Add:
         print()
         birthday_str = [str(input("Date of birth: "))]
 
-        # adding the date stamp
+        # Adding the date stamp
         date_of_entry_str = datetime.date.today()
         date_of_entry_str2 = time.strftime("%H:%M:%S")
         date_stamp = ""
@@ -65,14 +63,12 @@ class Add:
         num_temp_entries += "             - # of Entries."
         data_set2_add[0] = num_temp_entries
 
+        # Update the tally count of entries
         bigclass.set_tally(int(count))
-
-        print(f"No of tallies : {bigclass.get_tally}")
-        print("          You will now return to the MAIN MENU. ")
+        print(f"          You will now return to the MAIN MENU. ")
 
         return data_set2_add
 
 
 b_add = Add()
-
 # *--------------------      END add_f METHOD.    --------------------------*
