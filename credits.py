@@ -8,7 +8,7 @@ class Credits:
     --------------------------------------------------------
     |                ADDRESS BOOK PROGRAM                  |
     |             ---------------------------              |
-    |                   BY AIDAN AEDY                      |
+    |                    BY AIDAN AEDY                     |
     |            PYTHON REGISTERED VERSION 1.5             |
     |              LICENSED TO - AIDAN AEDY                |
     --------------------------------------------------------
